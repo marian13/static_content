@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Convenient Service: Method Middlewares Sequence Diagram</title>
+
+    <!-- https://www.w3schools.com/css/css_rwd_viewport.asp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+      /**
+       * https://www.w3schools.com/howto/howto_css_loader.asp
+       * https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_loader
+       */
+      #loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /**
+       * https://github.com/anvaka/panzoom
+       */
+      #diagram {
+        height: 100%;
+        width: 100%;
+
+        /*
+         * https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+         */
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- https://www.w3schools.com/howto/howto_css_loader.asp -->
+    <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_loader -->
+    <div id="loader"></div>
+
+    <!-- https://mermaid-js.github.io/mermaid/#/sequenceDiagram?id=sequence-diagrams -->
+    <div id="diagram" class="mermaid">
+      sequenceDiagram
+        participant Developer as Developer <br><br> Trigger
+        participant Service instance as service <br><br> Service instance
+        participant Prepended module as Prepended module <br><br> Prepended module to the Service class <br> (Service::InstanceMethodsMiddlewaresCallers)
+        participant First middleware as First middleware <br><br> The first middleware <br> registered for Service#35;result
+        participant Second middleware as Second middleware <br><br> The second middleware <br> registered for Service#35;result
+        participant N_th middleware as N-th middleware <br><br> The last middleware <br> registered for Service#35;result
+        participant Original method as Original method <br><br> #35;result defined directly in the Service class <br> or inherited from some of its ancestors
+        Developer->>Service instance: result
+        Service instance->>Prepended module: result
+        Prepended module->>Prepended module: Do any middlewares are registered for Service#35;result?
+        alt No
+          Prepended module->>Original method: call(env)
+        else Yes
+          Prepended module->>First middleware: call(env)
+        end
+        First middleware->>First middleware: What is the type of the first middleware? Proxy or Decorator?
+        alt Proxy
+          First middleware->>Prepended module: return value
+        else Decorator
+          First middleware->>First middleware: Does one more middleware is registered?
+          alt No
+            First middleware->>Original method: call(env)
+          else Yes
+            First middleware->>Second middleware: call(env)
+          end
+        end
+
+        Second middleware->>Second middleware: What is the type of the second middleware? Proxy or Decorator?
+        alt Proxy
+          Second middleware->>First middleware: return value
+        else Decorator
+          Second middleware->>Second middleware: Does one more middleware is registered?
+          alt No
+            Second middleware->>Original method: call(env)
+          else Yes
+            Second middleware->>N_th middleware: call(env)
+          end
+        end
+        N_th middleware->>N_th middleware: What is the type of the N-th middleware? Proxy or Decorator?
+        alt Proxy
+          N_th middleware->>Second middleware: return value
+        else Decorator
+          N_th middleware->>Original method: call(env)
+        end
+        Original method->>Original method: Does the original method is called from the N-th middleware?
+        alt No
+          Original method->>Original method: Does the original method is called from the second middleware?
+          alt No
+            Original method->>Original method: Does the original method is called from the first middleware?
+            alt No
+              Original method->>Prepended module: return value
+            else Yes
+              Original method->>First middleware: call(env)
+            end
+          else Yes
+            Original method->>Second middleware: call(env)
+          end
+        else Yes
+          Original method->>N_th middleware: call(env)
+        end
+        N_th middleware->>Second middleware: return value
+        Second middleware->>First middleware: return value
+        First middleware->>Prepended module: return value
+        Prepended module->>Service instance: return value
+        Service instance->>Developer: return value
+    </div>
+
+    <script type="module">
+      /**
+       * https://docs.skypack.dev/
+       */
+      import mermaid from 'https://cdn.skypack.dev/mermaid';
+      import panzoom from 'https://cdn.skypack.dev/panzoom';
+
+      /**
+       * https://mermaid-js.github.io/mermaid/#/
+       */
+      mermaid.initialize({ startOnLoad: true });
+
+      /**
+       * https://github.com/anvaka/panzoom
+       */
+      const elementWithDiagram = document.getElementById('diagram');
+
+      panzoom(elementWithDiagram);
+
+      /**
+       * https://www.w3schools.com/howto/howto_css_loader.asp
+       * https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_loader
+       */
+      const loader = document.getElementById('loader');
+
+      /*
+       * https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+       */
+      loader.remove();
+
+      /*
+       * https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+       */
+      elementWithDiagram.style.display = 'block';
+    </script>
+  </body>
+</html>
