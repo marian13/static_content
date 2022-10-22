@@ -5,7 +5,119 @@
 
     <!-- https://www.w3schools.com/css/css_rwd_viewport.asp -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+
+    <style type="text/css">
+      /**
+       * https://codepen.io/willpower/pen/pJKdej
+       * https://www.cssportal.com/scss-to-css/
+       */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 50px;
+        font-family: 'Nunito', sans-serif;
+      }
+      ul {
+        margin-left: 20px;
+      }
+      .wtree li {
+        list-style-type: none;
+        margin: 10px 0 10px 10px;
+        position: relative;
+      }
+      .wtree li:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -20px;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        width: 20px;
+        height: 15px;
+      }
+      .wtree li:after {
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: -20px;
+        border-left: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        width: 20px;
+        height: 100%;
+      }
+      .wtree li:last-child:after {
+        display: none;
+      }
+      .wtree li span {
+        display: block;
+        border: 1px solid #ddd;
+        padding: 10px;
+        color: #888;
+        text-decoration: none;
+      }
+    </style>
+
+    <style type="text/css">
+      /**
+       * https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links
+       * https://materializecss.com/color.html
+       */
+      a {
+        outline: none;
+        text-decoration: none;
+        padding: 2px 1px 0;
+      }
+
+      a:link {
+        color: #2196f3 ;
+      }
+
+      a:visited {
+        color: #673ab7;
+      }
+
+      a:focus {
+        border-bottom: 1px solid #42a5f5;
+      }
+
+      a:hover {
+        border-bottom: 1px solid;
+        background: #e3f2fd ;
+      }
+
+      a:active {
+        background: #90caf9;
+      }
+    </style>
   </head>
-  <body>  
+
+  <body>
+    <!-- https://codepen.io/willpower/pen/pJKdej -->
+    <a href="https://github.com/marian13/static_content">marian13/static_content</a>
+
+    <ul class="wtree">
+      <li>
+        <span>
+          Convenient Service
+        </span>
+        <ul>
+          <li>
+            <span>Diagrams</span>
+            <ul>
+              <li>
+                <span>
+                  <a href="https://github.com/marian13/static_content">Method Middlewares Sequence Diagram</a>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </body>
 </html>
