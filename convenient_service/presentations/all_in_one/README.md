@@ -29,6 +29,12 @@ This presentation is built using the tools listed below. Many kudos to their con
   open localhost:8000
   ```
 
+- You may also use [--port option](https://revealjs.com/installation/#development-server-port).
+
+   ```bash
+   npm start -- --port=8001
+   ```
+
 ### How was this presentation created?
 
 - Created and navigated to [convenient_service/presentations](https://github.com/marian13/static_content/tree/main/convenient_service/presentations) directory.
