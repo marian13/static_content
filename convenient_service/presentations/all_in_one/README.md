@@ -1,3 +1,16 @@
+
+## Acknowledgments
+
+This presentation is built using the tools listed below. Many kudos to their contributors.
+
+- [reveal.js](https://revealjs.com).
+
+- [panzoom](https://github.com/anvaka/panzoom).
+
+- [Sticker.js](http://stickerjs.cmiscm.com).
+
+- [Tippy.js](https://atomiks.github.io/tippyjs).
+
 ## FAQ
 
 ### How was this presentation created?
@@ -16,7 +29,7 @@
   cd convenient_service/presentations/
   ```
 
-- Followed [Reveal.js](https://revealjs.com/) [Installation Full Setup](https://revealjs.com/installation/#full-setup) guide.
+- Followed [reveal.js](https://revealjs.com/) [Installation Full Setup](https://revealjs.com/installation/#full-setup) guide.
 
   ```bash
   git clone https://github.com/hakimel/reveal.js.git all_in_one
