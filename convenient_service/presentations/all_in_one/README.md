@@ -13,6 +13,22 @@ This presentation is built using the tools listed below. Many kudos to their con
 
 ## FAQ
 
+### How to develop locally?
+
+- Run the following commands.
+
+  ```bash
+  cd ~/Projects/static_content/convenient_service/presentations/all_in_one/
+  ```
+
+  ```bash
+  npm install && npm start
+  ```
+
+  ```bash
+  open localhost:8000
+  ```
+
 ### How was this presentation created?
 
 - Created and navigated to [convenient_service/presentations](https://github.com/marian13/static_content/tree/main/convenient_service/presentations) directory.
