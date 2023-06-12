@@ -133,8 +133,17 @@
          *   }
          *
          * - https://github.com/anvaka/panzoom/issues/69
+         *
+         * NOTE: Allow zooming only when `alt` key is down.
+         * - https://github.com/anvaka/panzoom#ignore-mouse-wheel
+         *
+         * NOTE: Allow panning only when `alt` key is down.
+         * - https://github.com/anvaka/panzoom#ignore-mouse-down
+         *
+         * NOTE: Ignore keyboard events.
+         * - https://github.com/anvaka/panzoom#ignore-keyboard-events
          */
-        event.currentSlide.querySelectorAll('.image').forEach(element => panzoom(element))
+        event.currentSlide.querySelectorAll('.image').forEach(element => panzoom(element, { beforeWheel: e => !e.altKey, beforeMouseDown: e => !e.altKey, filterKey: () => true }))
 
         /**
          * NOTE: Tippy.js is the complete tooltip...
