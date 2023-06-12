@@ -583,3 +583,13 @@ Steps can be tried by `try` option
 
   <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/print_shell_command.rb" target="_blank"></a>
 </div>
+
+---
+
+`try_result` is called when `result` is NOT successful
+
+<div class="image">
+  <img src="slides/convenient_service/4/unification/try_result_when_not_successful_result.png">
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/service/plugins/can_have_steps/entities/step/plugins/can_be_tried/result/middleware.rb" target="_blank"></a>
+</div>
