@@ -177,6 +177,36 @@ Result matcher with multiple chainings
 
 ---
 
+Partial Matching - `comparing_by("===")`
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/comparing_by.png">
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/spec/lib/convenient_service/examples/standard/date_time/services/safe_parse_spec.rb" target="_blank"></a>
+</div>
+
+---
+
+Partial Matching - RSpec expectation matchers
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/rspec_expectation_matchers.png">
+
+  <a class="sticker" href="https://rspec.info/features/3-12/rspec-expectations/built-in-matchers" target="_blank"></a>
+</div>
+
+---
+
+Partial Matching - RSpec mocks arguments matchers
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/rspec_mocks_arguments_matchers.png">
+
+  <a class="sticker" href="https://rspec.info/features/3-12/rspec-mocks/setting-constraints/matching-arguments" target="_blank"></a>
+</div>
+
+---
+
 `include_module` matcher
 
 <div class="image">
