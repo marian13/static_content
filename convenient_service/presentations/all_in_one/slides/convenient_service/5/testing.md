@@ -187,7 +187,7 @@ Partial Matching - `comparing_by("===")`
 
 ---
 
-Partial Matching - RSpec expectation matchers
+Partial Matching - RSpec expectations matchers
 
 <div class="image">
   <img src="slides/convenient_service/5/testing/rspec_expectation_matchers.png">
