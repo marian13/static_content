@@ -4,6 +4,16 @@
 
 ---
 
+## The most important test suite criteria
+
+(by [marian13](https://github.com/marian13))
+
+- It notifies about any change in behavior <br>(aka [Complete](https://github.com/thoughtbot/testing-rails/blob/main/release/testing-rails.md#complete))
+
+- Only then [Fast, Reliable, Isolated, <br> Maintainable, Expressive](https://github.com/thoughtbot/testing-rails/blob/main/release/testing-rails.pdf)
+
+---
+
 Result matchers
 
 | Matcher | Opposite matcher |
