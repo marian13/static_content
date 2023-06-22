@@ -224,3 +224,43 @@ Partial Matching - RSpec mocks arguments matchers
 
   <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/spec/lib/convenient_service/examples/standard/gemfile/services/assert_file_exists_spec.rb" target="_blank"></a>
 </div>
+
+---
+
+`stub_service` helper
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/stub_service.png">
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/spec/lib/convenient_service/examples/standard/gemfile/services/assert_node_available_spec.rb" target="_blank"></a>
+</div>
+
+---
+
+`delegate_to` matcher
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/delegate_to.png">
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/spec/lib/convenient_service/examples/standard/gemfile/services/format_spec.rb" target="_blank"></a>
+</div>
+
+---
+
+`wrap_method` and `call_chain_next` (advanced)
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/wrap_method_and_call_chain_next.png">
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/spec/lib/convenient_service/service/plugins/raises_on_not_result_return_value/middleware_spec.rb" target="_blank"></a>
+</div>
+
+---
+
+`ignoring_error` helper (advanced)
+
+<div class="image">
+  <img src="slides/convenient_service/5/testing/ignoring_error.png">
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/spec/lib/convenient_service/service/plugins/has_result_short_syntax/failure/middleware_spec.rb" target="_blank"></a>
+</div>
