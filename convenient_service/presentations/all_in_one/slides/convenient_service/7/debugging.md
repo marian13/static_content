@@ -52,7 +52,7 @@ Result has shorter unsafe readers
 
 ---
 
-Result has parents
+Result has parents 💥
 
 <div class="image">
   <img src="slides/convenient_service/7/debugging/result_parents.png" />
@@ -128,4 +128,64 @@ Step has access to its input/output values
   <img src="slides/convenient_service/7/debugging/step_io_values.png" />
 
   <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/read_file_content.rb" target="_blank"></a>
+</div>
+
+---
+
+Service with exception example
+
+<div class="image">
+  <img src="slides/convenient_service/7/debugging/fake_exception_definition.png" />
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/assert_file_exists.rb" target="_blank"></a>
+</div>
+
+---
+
+Service result unhandled exception example
+
+<div class="image">
+  <img src="slides/convenient_service/7/debugging/fake_exception_raising.png" />
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/format.rb" target="_blank"></a>
+</div>
+
+---
+
+Exception has access to its services 💥
+
+<div class="image">
+  <img src="slides/convenient_service/7/debugging/exception_services.png" />
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/service/plugins/collects_services_in_exception/middleware.rb" target="_blank"></a>
+</div>
+
+---
+
+Exception has access to its service instances
+
+<div class="image">
+  <img src="slides/convenient_service/7/debugging/exception_service_instance.png" />
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/assert_file_exists.rb" target="_blank"></a>
+</div>
+
+---
+
+`RescuesResultUnhandledExceptions` (1 / 2)
+
+<div class="image">
+  <img src="slides/convenient_service/7/debugging/rescues_result_unhandled_exceptions.png" />
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/service/plugins/rescues_result_unhandled_exceptions/middleware.rb" target="_blank"></a>
+</div>
+
+---
+
+`RescuesResultUnhandledExceptions` (2 / 2)
+
+<div class="image">
+  <img src="slides/convenient_service/7/debugging/failure_data_exception.png" />
+
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/service/plugins/rescues_result_unhandled_exceptions/middleware.rb" target="_blank"></a>
 </div>
