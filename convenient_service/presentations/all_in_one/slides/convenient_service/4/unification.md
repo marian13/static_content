@@ -116,34 +116,24 @@ result = service.result
 
 ---
 
-Results return [JSend](https://github.com/omniti-labs/jsend/blob/master/README.md)-inspired structs (1 / 2)
+Results return [JSend](https://github.com/omniti-labs/jsend/blob/master/README.md)-inspired <br> but NOT [JSend](https://github.com/omniti-labs/jsend/blob/master/README.md)-compatible structs
 
 ```ruby
 class AssertFileExists
   # ...
 
   def result
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     if !::File.exist?(path)
-      return error("File with path `#{path}` does NOT exist")
+      return failure("File with path `#{path}` does NOT exist")
     end
 
     success
   end
 end
 ```
-
----
-
-Results return [JSend](https://github.com/omniti-labs/jsend/blob/master/README.md)-inspired structs (2 / 2)
-
-<div class="image">
-  <img src="slides/convenient_service/4/unification/jsend_result.png">
-
-  <a class="sticker" href="https://github.com/omniti-labs/jsend/blob/master/README.md" target="_blank"></a>
-</div>
 
 ---
 
@@ -154,11 +144,11 @@ class AssertFileExists
   # ...
 
   def result
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     if !::File.exist?(path)
-      return error("File with path `#{path}` does NOT exist")
+      return failure("File with path `#{path}` does NOT exist")
     end
 
     success
@@ -170,18 +160,18 @@ end
 
 ---
 
-`error` - when service goal is NOT achieved
+`failure` - when service goal is NOT achieved <br> due to expected reason
 
 ```ruby [1,9]
 class AssertFileExists
   # ...
 
   def result
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     if !::File.exist?(path)
-      return error("File with path `#{path}` does NOT exist")
+      return failure("File with path `#{path}` does NOT exist")
     end
 
     success
@@ -193,19 +183,18 @@ end
 
 ---
 
-`failure` - when service goal is NOT achieved due to
-invalid input
+`error` - when service goal is NOT achieved <br> due to invalid input or exception
 
 ```ruby [1,5-6]
 class AssertFileExists
   # ...
 
   def result
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     if !::File.exist?(path)
-      return error("File with path `#{path}` does NOT exist")
+      return failure("File with path `#{path}` does NOT exist")
     end
 
     success
@@ -234,11 +223,11 @@ class AssertFileExists
   # ...
 
   def result
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     if !::File.exist?(path)
-      return error("File with path `#{path}` does NOT exist")
+      return failure("File with path `#{path}` does NOT exist")
     end
 
     success
@@ -308,8 +297,8 @@ class ReadFileContent
   private
 
   def validate_path
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     success
   end
@@ -342,8 +331,8 @@ class ReadFileContent
   private
 
   def validate_path
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     success
   end
@@ -376,8 +365,8 @@ class ReadFileContent
   private
 
   def validate_path
-    return failure(path: "Path is `nil`") if path.nil?
-    return failure(path: "Path is empty") if path.empty?
+    return error("Path is `nil`") if path.nil?
+    return error("Path is empty") if path.empty?
 
     success
   end
@@ -427,7 +416,7 @@ All steps are successful - service returns its last step
 
 ---
 
-Any step is not successful - service returns that step
+Any step is NOT successful - service returns that step
 
 <div class="image">
   <img src="slides/convenient_service/4/unification/not_successful_step_result.png">
@@ -437,7 +426,7 @@ Any step is not successful - service returns that step
 
 ---
 
-Not successful step results are bubbled to the top
+NOT successful step results are bubbled to the top
 
 <div class="image">
   <img src="slides/convenient_service/4/unification/not_successful_step_result_bubbling.png">
@@ -566,7 +555,7 @@ Step definitions are converted to the service calls <br> by the rules defined in
 
 ---
 
-Steps can be tried by `try` option
+Steps can be tried by `fallback` option
 
 <div class="image">
   <img src="slides/convenient_service/4/unification/try_step.png">
@@ -576,7 +565,7 @@ Steps can be tried by `try` option
 
 ---
 
-`try` step option works when service has `try_result`
+`fallback` step option works <br> when service has `fallback_failure_result`
 
 <div class="image">
   <img src="slides/convenient_service/4/unification/try_result.png">
@@ -586,7 +575,7 @@ Steps can be tried by `try` option
 
 ---
 
-`try_result` is called when `result` is NOT successful
+`fallback_failure_result` is called <br> when `result` is NOT successful
 
 <div class="image">
   <img src="slides/convenient_service/4/unification/try_result_when_not_successful_result.png">
