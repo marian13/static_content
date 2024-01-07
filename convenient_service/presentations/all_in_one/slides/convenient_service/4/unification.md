@@ -558,7 +558,7 @@ Step definitions are converted to the service calls <br> by the rules defined in
 Steps can be tried by `fallback` option
 
 <div class="image">
-  <img src="slides/convenient_service/4/unification/try_step.png">
+  <img src="slides/convenient_service/4/unification/fallback_step.png">
 
   <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/run_shell_command.rb" target="_blank"></a>
 </div>
@@ -568,7 +568,7 @@ Steps can be tried by `fallback` option
 `fallback` step option works <br> when service has `fallback_failure_result`
 
 <div class="image">
-  <img src="slides/convenient_service/4/unification/try_result.png">
+  <img src="slides/convenient_service/4/unification/fallback_result.png">
 
   <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/examples/standard/gemfile/services/print_shell_command.rb" target="_blank"></a>
 </div>
@@ -578,7 +578,7 @@ Steps can be tried by `fallback` option
 `fallback_failure_result` is called <br> when `result` is NOT successful
 
 <div class="image">
-  <img src="slides/convenient_service/4/unification/try_result_when_not_successful_result.png">
+  <img src="slides/convenient_service/4/unification/fallback_result_when_not_successful_result.png">
 
-  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/service/plugins/can_have_steps/entities/step/plugins/can_be_tried/result/middleware.rb" target="_blank"></a>
+  <a class="sticker" href="https://github.com/marian13/convenient_service/blob/main/lib/convenient_service/service/plugins/can_have_steps/entities/step/plugins/can_have_fallbacks/middleware.rb" target="_blank"></a>
 </div>
