@@ -7,11 +7,11 @@ version: '3'
 tasks:
   all_in_one:server:
     cmds:
-      - cd ~/Projects/static_content/convenient_service/presentations/all_in_one && npm install && npm start
+      - cd ~/Projects/static_content/convenient_service/presentations/all_in_one && npm install && npm start -- --port=8301
 
   all_in_one:server:open:
     cmds:
-      - open -na "Google Chrome" --args --new-window --incognito "http://localhost:8000"
+      - open -na "Google Chrome" --args --new-window --incognito "http://localhost:8301"
       - task all_in_one:server
 
   ##
@@ -28,6 +28,15 @@ tasks:
   github:open:
     cmds:
       - open -na "Google Chrome" --args --new-window --incognito "https://github.com/marian13/static_content"
+
+  principles_and_patterns:server:
+    cmds:
+      - cd ~/Projects/static_content/convenient_service/presentations/principles_and_patterns && npm install && npm start -- --port=8302
+
+  principles_and_patterns:server:open:
+    cmds:
+      - open -na "Google Chrome" --args --new-window --incognito "http://localhost:8302"
+      - task principles_and_patterns:server
 
   ##
   # NOTE: Dev only command.

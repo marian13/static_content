@@ -20,3 +20,8 @@ windows:
       root: .
       panes:
         - task all_in_one:server:open
+  - principles_and_patterns:
+      layout: even-vertical
+      root: .
+      panes:
+        - task principles_and_patterns:server:open

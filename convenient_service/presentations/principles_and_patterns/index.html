@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Convenient Service</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+
+    <!-- NOTE: reveal.js theme -->
+    <!-- https://revealjs.com/themes -->
+		<link rel="stylesheet" href="dist/theme/beige.css">
+
+    <!-- NOTE: Monokai theme for code syntax highlighting -->
+		<!-- https://revealjs.com/code/#theming -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- NOTE: Tippy.js theme -->
+    <!-- https://atomiks.github.io/tippyjs/v6/themes -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css">
+
+    <style>
+      /**
+       * NOTE: Sticker.js - a Javascript library that allows you to create a Sticker Effect.
+       * - https://github.com/cmiscm
+       * - http://stickerjs.cmiscm.com
+       * - https://codepen.io/BEscudelario/pen/OZZvZp
+       * - https://github.com/cmiscm/stickerjs/blob/master/sticker.min.js
+       */
+      .image {
+        position: relative;
+      }
+
+      .image .sticker {
+        position: absolute;
+        right: 100px;
+        bottom: 100px;
+        width: 130px;
+        height: 130px;
+      }
+
+      .image .sticker .sticker-img {
+        background-image: url(assets/logo.png);
+        background-size: 105px 70px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+
+    <style>
+      .tippy-content {
+        font-size: 24px;
+
+        /**
+         * NOTE: Tells Tippy.js to use the same font as reveal.js.
+         */
+        font-family: Lato, sans-serif;
+      }
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <section data-markdown="slides/convenient_service/1/title.md"></section>
+        </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+
+    <!-- https://github.com/anvaka/panzoom#usage -->
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+
+    <!-- https://atomiks.github.io/tippyjs/v6/getting-started/#2-cdn -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- https://github.com/cmiscm/stickerjs/blob/master/example/index.html -->
+    <script src="./assets/vendor/sticker.js"></script>
+
+    <script>
+      const setup = event => {
+        /**
+         * NOTE: Sticker.js - a Javascript library that allows you to create a Sticker Effect.
+         * - https://github.com/cmiscm
+         * - http://stickerjs.cmiscm.com
+         * - https://codepen.io/BEscudelario/pen/OZZvZp
+         * - https://github.com/cmiscm/stickerjs/blob/master/sticker.min.js
+         *
+         * NOTE: Modified original `sticker.js` source for idempotence.
+         * NOTE: Modified original `sticker.js` source for sticker transparent background.
+         */
+        event.currentSlide.querySelectorAll('.image .sticker').forEach(element => Sticker.init((element)))
+
+        /**
+         * NOTE: panzoom - universal pan and zoom library.
+         * - https://github.com/anvaka/panzoom
+         *
+         * NOTE: In order to reset zoom the funcion below can be used.
+         *
+         *   function resetZoom(panZoomInstance) {
+         *     panZoomInstance.moveTo(0, 0);
+         *     panZoomInstance.zoomAbs(0, 0, 1);
+         *   }
+         *
+         * - https://github.com/anvaka/panzoom/issues/69
+         *
+         * NOTE: Allow zooming only when `alt` key is down.
+         * - https://github.com/anvaka/panzoom#ignore-mouse-wheel
+         *
+         * NOTE: Allow panning only when `alt` key is down.
+         * - https://github.com/anvaka/panzoom#ignore-mouse-down
+         *
+         * NOTE: Ignore keyboard events.
+         * - https://github.com/anvaka/panzoom#ignore-keyboard-events
+         */
+        event.currentSlide.querySelectorAll('.image').forEach(element => panzoom(element, { beforeWheel: e => !e.altKey, beforeMouseDown: e => !e.altKey, filterKey: () => true }))
+
+        /**
+         * NOTE: Tippy.js is the complete tooltip...
+         * - https://atomiks.github.io/tippyjs/
+         *
+         * NOTE: CSS data selectors.
+         * - https://css-tricks.com/almanac/selectors/a/attribute/
+         */
+        tippy(event.currentSlide.querySelectorAll('[data-tippy-content]'), { theme: 'light-border', followCursor: true })
+      };
+
+      /**
+       * NOTE: reveal.js events.
+       * - https://revealjs.com/events
+       */
+      Reveal.on('ready', event => setup(event))
+      Reveal.on('slidechanged', event => setup(event))
+    </script>
+	</body>
+</html>
