@@ -1,0 +1,22 @@
+##
+# NOTE: Tmuxinator config options.
+# - https://github.com/tmuxinator/tmuxinator#create-a-project
+#
+name: static_content
+root: .
+
+on_project_start:
+  - task editor:open
+  - task github:open
+
+windows:
+  - main:
+      layout: even-vertical
+      root: .
+      panes:
+        - git status
+  - all_in_one:
+      layout: even-vertical
+      root: .
+      panes:
+        - task all_in_one:server:open
